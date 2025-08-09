@@ -37,7 +37,12 @@ jobs:
       - name: Build executable with PyInstaller
         shell: bash
         run: |
-          pyinstaller --noconfirm --onefile --name ublclickxiaomi main.py
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            # Build without console window on Windows
+            pyinstaller --noconfirm --onefile --windowed --name ublclickxiaomi main.py
+          else
+            pyinstaller --noconfirm --onefile --name ublclickxiaomi main.py
+          fi
 
       - name: Prepare artifact (Linux/macOS)
         if: runner.os != 'Windows'
