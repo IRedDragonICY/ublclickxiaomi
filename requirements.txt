@@ -1,0 +1,9 @@
+ntplib>=0.4.0
+pytz>=2024.1
+urllib3>=2.2.0
+icmplib>=3.0
+requests>=2.32.0
+PyQt6>=6.6.0
+qt-material>=2.14
+
+
